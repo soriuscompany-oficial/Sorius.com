@@ -18,7 +18,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
       max-width: 760px;
       margin: 0 auto;
       padding: 64px 24px 96px;
@@ -42,7 +42,11 @@
       color: var(--accent);
     }
     p, li { color: var(--text); font-weight: 300; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    strong { font-weight: 500; }
     a { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; border-radius: 2px; }
     .volver {
       display: inline-block;
       margin-bottom: 32px;
@@ -51,6 +55,10 @@
       font-size: 14px;
     }
     .volver:hover { color: var(--text); }
+    @media (max-width: 480px) {
+      body { padding: 40px 20px 72px; }
+      h1 { font-size: 32px; }
+    }
   </style>
 </head>
 <body>
@@ -58,40 +66,104 @@
   <a href="index.html" class="volver">&larr; Volver a Sorius</a>
 
   <h1>Política de Privacidad</h1>
-  <p class="fecha">Última actualización: 8/9/2026</p>
-
-
+  <p class="fecha">Última actualización: 21 de octubre de 2026</p>
 
   <h2>1. Introducción</h2>
   <p>
-    Hola, somos los desarrolladores de Sorius, un reproductor de musica movil que no solo reproduce archivos MP3, si no que los convertimos en algo especial, todo para que llegue a la comodidad de tu hogar o quizas en cualquier lugar donde estes escuchando, nuestra política de privacidad existe para cumplir el reglamento necesario para promover anuncios publicitarios en nuestra APP.
+    Hola, somos los desarrolladores de Sorius, un reproductor de música móvil que no solo reproduce tus archivos MP3, sino que los convierte en algo especial, para que los disfrutes en la comodidad de tu hogar o en cualquier lugar donde estés escuchando.
+  </p>
+  <p>
+    Esta política te cuenta qué datos usa la app, para qué, y qué puedes hacer tú al respecto. También existe para cumplir con lo necesario para mostrar anuncios publicitarios en Sorius.
   </p>
 
   <h2>2. Información que recopilamos</h2>
   <p>
-    Nuestra APP no fue desarrollada con la idea de recopilar información del usurio, pero colocamos funciones opcionales donde puedes iniciar sesión con cualquier cuenta de Google que desees, no es necesario que coloques tu contraseña ni nada parecido, solo queremos brindarte los mejores momentos utilizando nuestro reproductor.
+    Sorius no fue pensada para recopilar datos tuyos, pero algunas funciones necesitan ciertos datos para trabajar. Esto es lo que puede pasar:
   </p>
+  <ul>
+    <li><strong>Inicio de sesión con Google (opcional).</strong> Puedes entrar con la cuenta de Google que quieras. Nunca vemos tu contraseña: el inicio de sesión lo maneja Google. Recibimos los datos básicos de tu cuenta que Google comparte con la app, como tu nombre y tu correo.</li>
+    <li><strong>Funciones en línea.</strong> Para funciones como el ranking, las salas compartidas y el perfil usamos servicios de Google Firebase (autenticación, base de datos, almacenamiento y estadísticas de uso). Aquí se guarda lo que tú decides compartir, como tu nombre de usuario, tu foto de perfil o datos de tu actividad en esas funciones.</li>
+    <li><strong>Reportes de errores.</strong> Si la app falla, puede enviarse información técnica del fallo (modelo del dispositivo, versión de Android y de la app) para que podamos arreglarlo.</li>
+    <li><strong>Datos en tu dispositivo.</strong> Tus ajustes, tus puntos Sorius y tus preferencias se guardan en tu teléfono.</li>
+    <li><strong>Contenido de terceros.</strong> Algunas funciones buscan música, videos o letras a través de servicios como YouTube o Google Drive. Al usarlas, esos servicios reciben tu búsqueda o tu solicitud y aplican sus propias políticas.</li>
+  </ul>
 
-  <h2>3. Almacenamiento y seguridad</h2>
+  <h2>3. Anuncios</h2>
   <p>
-    Ya que nuestra APP es un reproductor de archivos, necesitamos tu concentimiento para leer y guardar datos de lo que al paso del tiempo vas cambiando, todo lo que la APP modifico, fue por alguna decicion del usuario a la hora de ver nuetras diferentes funciones disponibles.
+    Sorius muestra anuncios, por ejemplo videos bonificados con los que puedes ganar puntos Sorius. Los anuncios los entrega <strong>Start.io</strong>, un servicio de publicidad de terceros.
   </p>
-
-  
-  <h2>4. Tus derechos</h2>
   <p>
-    Ya que tienes el control absoluto de nuesta APP instalada dentro de tu dispositivo, puedes notificarnos cualquier error o queja que tengas, no importa la situación, nosotros siempre te vamos a entender y ayudar. 
+    Para mostrar anuncios, Start.io puede recopilar y procesar datos del dispositivo, como el identificador de publicidad de tu teléfono, la dirección IP, el modelo del dispositivo, la versión de Android y datos sobre cómo interactúas con los anuncios. Con eso puede mostrarte publicidad personalizada y medir su rendimiento. Puedes conocer más en el sitio de Start.io: <a href="https://www.start.io" target="_blank" rel="noopener noreferrer">start.io</a>.
   </p>
-
-  <h2>5. Cambios a esta política</h2>
   <p>
-    Proximamente estaremos actualizando esta politica de privacidad, asi que cualquier cosa estaremos notificando a los usuarios de nuestra App
+    Puedes limitar la publicidad personalizada o restablecer tu identificador de publicidad cuando quieras desde los ajustes de tu Android, en la sección de anuncios o privacidad.
   </p>
 
-  <h2>6. Contacto</h2>
+  <h2>4. Permisos que pide la app</h2>
+  <p>
+    Sorius pide algunos permisos de Android. Solo se usan para la función que los necesita:
+  </p>
+  <ul>
+    <li><strong>Audio e imágenes del dispositivo:</strong> para encontrar y reproducir tu música y mostrar las portadas.</li>
+    <li><strong>Micrófono:</strong> para las funciones de voz y de audio en vivo. Solo se usa mientras activas esa función.</li>
+    <li><strong>Ubicación y dispositivos cercanos:</strong> Android exige este permiso para buscar redes y dispositivos cercanos (por ejemplo Wi-Fi y Bluetooth) en las funciones que se conectan con otros equipos.</li>
+    <li><strong>Notificaciones:</strong> para mostrarte los controles de reproducción y avisos de la app.</li>
+    <li><strong>Cuentas:</strong> para el inicio de sesión con Google.</li>
+    <li><strong>Internet y estado de la red:</strong> para las funciones en línea y los anuncios.</li>
+    <li><strong>Bluetooth:</strong> para conectar tus audífonos y bocinas.</li>
+    <li><strong>Servicios en segundo plano y arranque del dispositivo:</strong> para que la música siga sonando con la pantalla apagada y las descargas terminen.</li>
+  </ul>
+  <p>
+    Si no quieres dar un permiso, puedes negarlo o quitarlo desde los ajustes de tu teléfono. Esa función puede dejar de funcionar, pero el resto de la app seguirá disponible.
+  </p>
+
+  <h2>5. Almacenamiento y seguridad</h2>
+  <p>
+    Como Sorius es un reproductor de archivos, necesitamos tu consentimiento para leer los archivos de tu dispositivo y guardar los cambios que vas haciendo. Todo lo que la app modifica es por una decisión tuya al usar sus funciones.
+  </p>
+  <p>
+    Los datos en línea se guardan en servicios de Google Firebase y los conservamos mientras tu cuenta o la función los necesite. Hacemos lo posible por protegerlos, aunque ningún sistema en internet es totalmente seguro.
+  </p>
+
+  <h2>6. Menores de edad</h2>
+  <p>
+    Sorius no está dirigida a menores de 13 años y no recopilamos a propósito datos de niños. Si crees que un menor nos dio datos, escríbenos y los eliminamos.
+  </p>
+
+  <h2>7. Tus derechos</h2>
+  <p>
+    Tienes el control de Sorius en tu dispositivo, y también de tus datos. Puedes:
+  </p>
+  <ul>
+    <li>Pedirnos que te digamos qué datos tuyos tenemos.</li>
+    <li>Pedirnos que corrijamos o eliminemos tus datos o tu cuenta. Escríbenos al correo de contacto y lo resolvemos.</li>
+    <li>Quitar permisos desde los ajustes de tu teléfono.</li>
+    <li>Cerrar sesión o desinstalar la app cuando quieras. Al desinstalarla se borran los datos guardados en tu dispositivo.</li>
+    <li>Limitar la publicidad personalizada desde los ajustes de tu Android.</li>
+  </ul>
+  <p>
+    Si tienes un error o una queja, cuéntanos. Siempre vamos a escucharte y ayudarte.
+  </p>
+
+  <h2>8. Servicios de terceros</h2>
+  <p>
+    Sorius usa servicios de otras empresas, cada una con su propia política de privacidad:
+  </p>
+  <ul>
+    <li>Google (inicio de sesión, Drive y YouTube): <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
+    <li>Firebase: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">firebase.google.com/support/privacy</a></li>
+    <li>Start.io (anuncios): <a href="https://www.start.io" target="_blank" rel="noopener noreferrer">start.io</a></li>
+  </ul>
+
+  <h2>9. Cambios a esta política</h2>
+  <p>
+    Si cambiamos esta política, publicaremos la nueva versión en esta misma página y actualizaremos la fecha de arriba. Si el cambio es importante, también lo avisaremos dentro de la app.
+  </p>
+
+  <h2>10. Contacto</h2>
   <p>
     Si tienes preguntas sobre esta política, escríbenos a
-    soriuscompany@gmail.com o a través de nuestro
+    <a href="mailto:soriuscompany@gmail.com">soriuscompany@gmail.com</a> o a través de nuestro
     <a href="https://instagram.com/sorius.pa" target="_blank" rel="noopener noreferrer">Instagram</a>.
   </p>
 
