@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Instalar · Sorius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#08090d; --accent:#35ae49; --accent2:#a162f7;
+      --glow:rgba(31,109,60,0.4); --text:#e8eaf2; --muted:#9799ac;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: calc(24px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px));
+    }
+    body::before {
+      content:''; position:fixed; inset:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .box { position: relative; width: 100%; max-width: 380px; text-align: center; }
+
+    h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -1px;
+      margin-bottom: 8px;
+      background: linear-gradient(160deg, #fff 40%, rgba(255,255,255,0.5));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    p.sub { color: var(--muted); font-size: 14px; font-weight: 300; margin-bottom: 28px; }
+
+    input {
+      width: 100%; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);
+      color: var(--text); font-family: inherit; font-size: 16px; text-align: center; outline: none;
+      transition: border-color .2s;
+    }
+    input:focus { border-color: var(--accent); }
+
+    button {
+      width: 100%; margin-top: 14px; padding: 14px; border: 0; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer;
+      box-shadow: 0 0 30px var(--glow);
+    }
+    button:disabled { opacity: .5; cursor: wait; }
+    button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    #msg { margin-top: 16px; min-height: 20px; font-size: 14px; color: #ff6b6b; }
+    #msg.ok { color: var(--accent); }
+
+    a.volver { display: inline-block; margin-top: 24px; color: var(--muted); font-size: 14px; text-decoration: none; }
+    a.volver:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Verificación</h1>
+    <p class="sub">Ingresa tu clave para descargar la APP</p>
+
+    <input id="codigo" type="text" placeholder="" maxlength="64"
+           autocomplete="off" autocapitalize="off" spellcheck="false"/>
+    <button id="btn" type="button">Verificar</button>
+    <div id="msg" role="status" aria-live="polite"></div>
+
+    <a href="index.html" class="volver">&larr; Volver</a>
+  </div>
+
+<script>
+  const API = "https://servidor-emisoras.soriuscompany.workers.dev/acceso-apk";
+
+  const $ = id => document.getElementById(id);
+
+  async function verificar() {
+    const codigo = $("codigo").value.trim();
+    $("msg").className = "";
+
+    if (!codigo) { $("msg").textContent = "Escribe tu clave."; return; }
+
+    $("btn").disabled = true;
+    $("msg").textContent = "Verificando";
+
+    try {
+      const r = await fetch(API, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ codigo })
+      });
+      const data = await r.json().catch(() => ({}));
+
+      if (r.ok && data.url) {
+        $("msg").className = "ok";
+        $("msg").textContent = "Acceso concedido, Espera un momento"
+        window.location.href = data.url;
+      } else {
+        $("msg").textContent = data.error || "Fallaste, No existe";
+        $("btn").disabled = false;
+      }
+    } catch (e) {
+      $("msg").textContent = "No se pudo conectar con el servidor.";
+      $("btn").disabled = false;
+    }
+  }
+
+  $("btn").addEventListener("click", verificar);
+  $("codigo").addEventListener("keydown", e => { if (e.key === "Enter") verificar(); });
+</script>
+</body>
+</html>
