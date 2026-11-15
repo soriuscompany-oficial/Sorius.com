@@ -77,7 +77,6 @@
       animation: fadeUp 0.8s ease both;
     }
 
-  
     .logo {
       width: 80px; height: 80px;
       border-radius: 22px;
@@ -117,6 +116,24 @@
     }
 
   
+    .btn-instalar {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 0 30px var(--glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-instalar:hover { transform: translateY(-2px); box-shadow: 0 0 45px var(--glow); }
+    .btn-instalar:active { transform: translateY(0); }
+    .btn-instalar:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
     .site-footer {
       position: fixed;
       left: 0;
@@ -156,28 +173,11 @@
     }
     .site-footer a.pill:active { transform: translateY(0); }
 
-  
     .yt-attribution { cursor: default; }
-    .yt-attribution .yt-powered {
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .yt-attribution .yt-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .site-footer .pill svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .yt-attribution .yt-icon {
-      width: 26px;
-      height: 18px;
-      flex-shrink: 0;
-    }
+    .yt-attribution .yt-powered { color: var(--muted); font-weight: 400; }
+    .yt-attribution .yt-badge { display: inline-flex; align-items: center; gap: 6px; }
+    .site-footer .pill svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .yt-attribution .yt-icon { width: 26px; height: 18px; flex-shrink: 0; }
     .yt-attribution .yt-wordmark {
       font-family: 'Arial', sans-serif;
       font-weight: 700;
@@ -186,11 +186,7 @@
       color: #ffffff;
     }
 
-    .footer-side {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .footer-side { display: flex; flex-wrap: wrap; gap: 12px; }
     .footer-side.left { justify-content: flex-start; }
     .footer-side.right { justify-content: flex-end; }
 
@@ -209,10 +205,7 @@
         max-height: 70vh;
         overflow-y: auto;
       }
-      .footer-side {
-        width: 100%;
-        justify-content: center;
-      }
+      .footer-side { width: 100%; justify-content: center; }
       .site-footer .pill {
         width: 100%;
         max-width: 320px;
@@ -220,18 +213,16 @@
         padding: 14px 18px;
         font-size: 13.5px;
       }
-      .site-footer .pill svg {
-        width: 22px;
-        height: 22px;
-      }
-      .yt-attribution .yt-icon {
-        width: 28px;
-        height: 19px;
-      }
+      .site-footer .pill svg { width: 22px; height: 22px; }
+      .yt-attribution .yt-icon { width: 28px; height: 19px; }
     }
 
     @media (max-width: 380px) {
       .site-footer .pill { font-size: 12.5px; padding: 12px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb, .card { animation: none; }
     }
   </style>
 </head>
@@ -251,6 +242,8 @@
     <p class="tagline">Tu reproductor de música de confianza</p>
 
     <p class="plataforma">Android</p>
+
+    <a href="instalar.html" class="btn-instalar">Instalar</a>
 
   </div>
 
